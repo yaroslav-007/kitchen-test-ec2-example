@@ -16,14 +16,13 @@ transport:
 
 verifier:
   name: terraform
-  format: doc
-  groups:
+  systems:
     - name: default
-      controls:
-        - operating_system
-      hostnames: public_dns
-      username: ubuntu
-
+      backend: ssh
+      user: ubuntu      
+      hosts_output: public_dns
+      key_files:
+        - /vagrant/bliak.pem
 suites:
   - name: default
 
